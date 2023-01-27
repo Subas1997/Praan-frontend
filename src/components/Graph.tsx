@@ -18,7 +18,13 @@ import { IDevice } from "../interface/device";
 import { filterPM, mostWindy } from "../utils/filterData";
 import AreaGraph from "./AreaGraph";
 
-const Graph = ({ location, city }) => {
+type graphProps = {
+  location: string;
+  city: IDevice[];
+};
+
+const Graph = (props: graphProps) => {
+  const { location, city } = props;
   const changeDateFormat = (dateRange: any) => {
     let { startDate, endDate } = dateRange;
     return {
@@ -76,8 +82,7 @@ const Graph = ({ location, city }) => {
       </div>
       <div className="mb-9 flex justify-start">
         <span className="rounded-md bg-green-500 px-3.5 py-1.5 text-base font-semibold leading-10 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-          <LocationCityIcon />{" "}
-          {`Data Analysis of ${location} city`}
+          <LocationCityIcon /> {`Data Analysis of ${location} city`}
         </span>
       </div>
       <div className="flex">
