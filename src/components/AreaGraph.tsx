@@ -7,8 +7,13 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { IDevice } from "../interface/device";
 
-const AreaGraph = ({ graphData }) => {
+type AreaGraphProps = {
+  graphData: IDevice[];
+};
+const AreaGraph = (props: AreaGraphProps) => {
+  const { graphData } = props;
   return (
     <>
       <div className="m-4 flex mx-40 mb-10">
